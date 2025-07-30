@@ -6,7 +6,8 @@ from openai import AsyncOpenAI
 import asyncio
 import streamlit as st
 import threading
-from api_server import start_server
+from api_server import run as start_server
+
 
 
 # ===== Load environment variables =====
