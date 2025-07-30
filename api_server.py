@@ -26,9 +26,11 @@ class SimpleHandler(BaseHTTPRequestHandler):
         self.end_headers()
 
 def run():
-    server_address = ('', 8001)
+    import os
+    PORT = int(os.environ.get("PORT", 8001))  # 👈 Use Railway's PORT if available
+    server_address = ('', PORT)
     httpd = HTTPServer(server_address, SimpleHandler)
-    print("Server running on port 8001...")
+    print(f"Server running on port {PORT}...")
     httpd.serve_forever()
 
 if __name__ == "__main__":
